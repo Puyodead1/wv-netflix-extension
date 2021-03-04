@@ -444,6 +444,8 @@ async function getManifest(esn = defaultEsn) {
   return manifest;
 }
 
+window.getManifest = getManifest;
+
 async function getLicense(challenge, sessionId) {
   licenseRequestData = {
     version: 2,
