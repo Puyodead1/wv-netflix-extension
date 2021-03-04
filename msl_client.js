@@ -358,8 +358,10 @@ async function getManifest(esn = defaultEsn) {
         "heaac-2hq-dash",
         "playready-h264mpl30-dash",
         "playready-h264mpl31-dash",
+        "playready-h264mpl40-dash",
         "playready-h264hpl30-dash",
         "playready-h264hpl31-dash",
+        "playready-h264hpl40-dash",
         "dfxp-ls-sdh",
         "simplesdh",
         "nflx-cmisc",
@@ -384,8 +386,8 @@ async function getManifest(esn = defaultEsn) {
         {
           type: "DigitalVideoOutputDescriptor",
           outputType: "unknown",
-          supportedHdcpVersions: [],
-          isHdcpEngaged: false,
+          supportedHdcpVersions: ["1.4"],
+          isHdcpEngaged: true,
         },
       ],
       titleSpecificData: {
@@ -435,7 +437,7 @@ async function getManifest(esn = defaultEsn) {
       manifest.video_tracks[0].streams.length - 1
     ];
   console.log(
-    `Highest stream resolution is ${videoStream.res_h}x${videoStream.res_w}`
+    `Highest stream resolution is ${videoStream.res_w}x${videoStream.res_h}`
   );
 
   return manifest;
