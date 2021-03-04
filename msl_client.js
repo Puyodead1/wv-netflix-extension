@@ -362,6 +362,7 @@ async function getManifest(esn = defaultEsn) {
         "playready-h264hpl30-dash",
         "playready-h264hpl31-dash",
         "playready-h264hpl40-dash",
+        "heaac-5.1-dash",
         "dfxp-ls-sdh",
         "simplesdh",
         "nflx-cmisc",

@@ -5,7 +5,7 @@ script_urls = [
   "https://cdn.rawgit.com/Caligatio/jsSHA/master/dist/sha.js",
 ];
 
-urls = ["msl_client.js"];
+urls = ["msl_client.js", "netflix_max_bitrate.js"];
 
 // very messy workaround for accessing chrome storage outside of background / content scripts
 chrome.storage.sync.get(["use6Channels", "setMaxBitrate"], function (items) {
