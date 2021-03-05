@@ -35,6 +35,8 @@ let fn = function () {
       options[i].removeAttribute("selected");
     }
 
+    console.log(options[options.length - 1])
+
     options[options.length - 1].setAttribute("selected", "selected");
   });
 
@@ -44,6 +46,7 @@ let fn = function () {
 };
 
 let run = function () {
+  console.log("max bitrate run")
   fn() || setTimeout(run, 100);
 };
 
@@ -51,14 +54,13 @@ const WATCH_REGEXP = /netflix.com\/watch\/.*/;
 
 let oldLocation;
 
-if (setMaxBitrate) {
-  console.log("netflix_max_bitrate.js enabled");
-  setInterval(function () {
-    let newLocation = window.location.toString();
+console.log("netflix_max_bitrate.js enabled");
+setInterval(function () {
+  console.log("max_bitrate interval")
+  let newLocation = window.location.toString();
 
-    if (newLocation !== oldLocation) {
-      oldLocation = newLocation;
-      WATCH_REGEXP.test(newLocation) && run();
-    }
-  }, 500);
-}
+  if (newLocation !== oldLocation) {
+    oldLocation = newLocation;
+    WATCH_REGEXP.test(newLocation) && run();
+  }
+}, 500);
