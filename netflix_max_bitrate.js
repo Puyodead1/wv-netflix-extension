@@ -46,7 +46,6 @@ let fn = function () {
 };
 
 let run = function () {
-  console.log("max bitrate run")
   fn() || setTimeout(run, 100);
 };
 
@@ -56,7 +55,6 @@ let oldLocation;
 
 console.log("netflix_max_bitrate.js enabled");
 setInterval(function () {
-  console.log("max_bitrate interval")
   let newLocation = window.location.toString();
 
   if (newLocation !== oldLocation) {
