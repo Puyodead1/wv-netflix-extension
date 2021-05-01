@@ -325,7 +325,7 @@ async function decryptMslResponse(data) {
   return decrypted.result;
 }
 
-async function getManifest(esn = defaultEsn) {
+async function getManifest(esn = defaultEsn, id) {
   defaultEsn = esn;
   console.log("Performing key exchange");
   keyExchangeData = await performKeyExchange();
@@ -338,7 +338,7 @@ async function getManifest(esn = defaultEsn) {
   mastertoken = headerdata.keyresponsedata.mastertoken;
   sequenceNumber = JSON.parse(atob(mastertoken.tokendata)).sequencenumber;
   viewableIdPath = window.location.pathname.substring(7, 15);
-  viewableId = await getViewableId(viewableIdPath);
+  viewableId = id ? id : await getViewableId(viewableIdPath);
 
   localeId = "en-US";
 
