@@ -54,8 +54,8 @@ var manifestUrl =
   "https://www.netflix.com/nq/msl_v1/cadmium/pbo_manifests/^1.0.0/router";
 var licenseUrl =
   "https://www.netflix.com/nq/msl_v1/cadmium/pbo_licenses/^1.0.0/router";
-var shaktiMetadataUrl =
-  "https://www.netflix.com/api/shakti/v6a5172d2/metadata?movieid=";
+var shaktiMetadataUrl = (movieId) =>
+  `https://www.netflix.com/api/shakti/v6e15993f/metadata?webp=true&drmSystem=widevine&isVolatileBillboardsEnabled=true&routeAPIRequestsThroughFTL=false&isTop10Supported=true&isTop10KidsSupported=false&hasVideoMerchInBob=true&hasVideoMerchInJaw=true&persoInfoDensity=false&infoDensityToggle=false&contextAwareImages=true&enableMultiLanguageCatalog=false&usePreviewModal=true&movieid=${movieId}&imageFormat=webp&&withSize=true&materialize=true`;
 //var defaultEsn = "NFCDFF-02-" + generateEsn();
 var defaultEsn = "NFCDFF-02-GTP5ED21NYP055242EU63FDQKYQ2FM";
 var profiles = [
@@ -87,7 +87,7 @@ var header = {
 async function getViewableId(viewableIdPath) {
   console.log("Getting video metadata for ID " + viewableIdPath);
 
-  var apiResp = await fetch(shaktiMetadataUrl + viewableIdPath, {
+  var apiResp = await fetch(shaktiMetadataUrl(viewableIdPath), {
     credentials: "same-origin",
     method: "GET",
   });
@@ -108,7 +108,7 @@ async function getMetadata() {
   const viewableIdPath = window.location.pathname.substring(7, 15);
   console.log("Getting video metadata for ID " + viewableIdPath);
 
-  var apiResp = await fetch(shaktiMetadataUrl + viewableIdPath, {
+  var apiResp = await fetch(shaktiMetadataUrl(viewableIdPath), {
     credentials: "same-origin",
     method: "GET",
   });
