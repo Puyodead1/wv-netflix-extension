@@ -55,7 +55,7 @@ var manifestUrl =
 var licenseUrl =
   "https://www.netflix.com/nq/msl_v1/cadmium/pbo_licenses/^1.0.0/router";
 var shaktiMetadataUrl = (movieId) =>
-  `https://www.netflix.com/api/shakti/v6e15993f/metadata?webp=true&drmSystem=widevine&isVolatileBillboardsEnabled=true&routeAPIRequestsThroughFTL=false&isTop10Supported=true&isTop10KidsSupported=false&hasVideoMerchInBob=true&hasVideoMerchInJaw=true&persoInfoDensity=false&infoDensityToggle=false&contextAwareImages=true&enableMultiLanguageCatalog=false&usePreviewModal=true&movieid=${movieId}&imageFormat=webp&&withSize=true&materialize=true`;
+  `https://www.netflix.com/nq/website/memberapi/v726683ab/metadata?webp=true&drmSystem=widevine&isVolatileBillboardsEnabled=true&routeAPIRequestsThroughFTL=false&isTop10Supported=true&isTop10KidsSupported=false&hasVideoMerchInBob=true&hasVideoMerchInJaw=true&persoInfoDensity=false&infoDensityToggle=false&contextAwareImages=true&enableMultiLanguageCatalog=false&usePreviewModal=true&movieid=${movieId}&imageFormat=webp&&withSize=true&materialize=true`;
 //var defaultEsn = "NFCDFF-02-" + generateEsn();
 var defaultEsn = "NFCDFF-02-GTP5ED21NYP055242EU63FDQKYQ2FM";
 var profiles = [
